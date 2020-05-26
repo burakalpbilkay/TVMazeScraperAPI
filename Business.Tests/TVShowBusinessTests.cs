@@ -7,6 +7,7 @@ namespace TVMazeScrapperAPI.Business.Tests
     using TVMazeScrapperAPI.Data.Consumer;
     using TVMazeScrapperAPI.Data.Mock;
     using TVMazeScrapperAPI.Data.Repository;
+
     [TestClass]
     public class TVShowBusinessTests
     {

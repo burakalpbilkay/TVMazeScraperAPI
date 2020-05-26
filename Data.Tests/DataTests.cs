@@ -3,7 +3,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    using Data.Context;
+    using TVMazeScrapperAPI.Data.Context;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using TVMazeScrapperAPI.Data.DTOs;

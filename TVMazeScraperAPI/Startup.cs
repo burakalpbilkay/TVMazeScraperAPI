@@ -1,8 +1,7 @@
 ﻿using System;
 namespace TVMazeScraperAPI
 {
-    using System.Threading.Tasks;
-    using Data.Context;
+    using System.Threading.Tasks;    
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Mvc;
@@ -12,6 +11,7 @@ namespace TVMazeScraperAPI
     using TVMazeScrapperAPI.Business;
     using TVMazeScrapperAPI.Data.Connector;
     using TVMazeScrapperAPI.Data.Consumer;
+    using TVMazeScrapperAPI.Data.Context;
     using TVMazeScrapperAPI.Data.Repository;
 
     public class Startup

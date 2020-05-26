@@ -1,15 +1,12 @@
-﻿using System;
-using Data.Context;
-using Microsoft.EntityFrameworkCore;
-using System.Linq;
-using TVMazeScrapperAPI.Models;
-using System.Threading.Tasks;
-using System.Collections.Generic;
-using Data.DTOs.Extensions;
-using TVMazeScrapperAPI.Data.DTOs;
-
-namespace TVMazeScrapperAPI.Data.Repository
+﻿namespace TVMazeScrapperAPI.Data.Repository
 {
+    using Microsoft.EntityFrameworkCore;
+    using System.Linq;  
+    using System.Threading.Tasks;
+    using System.Collections.Generic;    
+    using TVMazeScrapperAPI.Data.DTOs;
+    using TVMazeScrapperAPI.Data.Context;
+    using TVMazeScrapperAPI.Data.DTOs.Extensions;
 
     public class TVShowRepository : ITVShowRepository
     {

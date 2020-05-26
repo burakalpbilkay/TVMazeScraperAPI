@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Data.Context;
-using TVMazeScrapperAPI.Data.DTOs;
-using TVMazeScrapperAPI.Data.Repository;
-
-namespace TVMazeScrapperAPI.Data.Mock
+﻿namespace TVMazeScrapperAPI.Data.Mock
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+    using TVMazeScrapperAPI.Data.DTOs;
+    using TVMazeScrapperAPI.Data.Repository;
+
     public class TVShowRepositoryMock : ITVShowRepository
     {
       

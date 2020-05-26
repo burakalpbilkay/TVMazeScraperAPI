@@ -1,4 +1,4 @@
-﻿namespace Data.Context
+﻿namespace TVMazeScrapperAPI.Data.Context
 {
     using System;
     using TVMazeScrapperAPI.Models;

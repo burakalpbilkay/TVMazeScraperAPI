@@ -1,4 +1,4 @@
-﻿namespace Data.DTOs.Extensions
+﻿namespace TVMazeScrapperAPI.Data.DTOs.Extensions
 {
     using System;   
     using TVMazeScrapperAPI.Data.DTOs;
