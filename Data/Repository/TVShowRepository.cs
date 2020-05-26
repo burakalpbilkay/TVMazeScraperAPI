@@ -20,25 +20,12 @@ namespace TVMazeScrapperAPI.Data.Repository
             this.context = context;
         }
 
-        public async Task AddTVShow(TVShow tvShow)
-        {
-            try
-            {
-                await context.TVShows.AddAsync(tvShow);
-                context.SaveChanges(); 
-            }
-            catch
-            {
-                //TODO log                
-            }
-        }
-
         public async Task AddTVShows(TVShowDTO tvShows)
-        {
+        {          
             try
             {
                 if (context.TVShows.Where(x => x.Id == tvShows.Id).Count() <= 0)
-                    await context.TVShows.AddAsync(tvShows.ToModel());
+                    await context.TVShows.AddAsync(tvShows.ToModel());               
                     context.SaveChanges();
             }
             catch
@@ -80,14 +67,19 @@ namespace TVMazeScrapperAPI.Data.Repository
            
             return tvShows.Select(x => x.ToDto());
         }
-        public async Task Drop()
+        public void Drop()
         {
-            await context.Database.EnsureDeletedAsync();
+            context.Database.EnsureDeletedAsync();
         }
 
         public IEnumerable<TVShowDTO> GetAllTVShows()
         {
             return context.TVShows.Select(x => x.ToDtoWithoutCast());
+        }
+
+        public IEnumerable<CastMemberDTO> GetAllTCast()
+        {
+            return context.Cast.Select(x => x.ToDto());
         }
 
         public async Task AddRelation(TVShowCastMemberDTO tVShowCastMembers)

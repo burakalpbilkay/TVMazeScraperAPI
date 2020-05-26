@@ -12,7 +12,9 @@
         IEnumerable<TVShowDTO> GetAllTVShows();
         
         Task CreateAndPopulateDatabase();
-       
+
+        void DropDatabase();
+
         Task AddTVShows(IEnumerable<TVShowDTO> tvShows);
     }
 }

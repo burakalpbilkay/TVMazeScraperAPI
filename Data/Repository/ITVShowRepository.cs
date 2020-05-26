@@ -9,7 +9,9 @@ namespace TVMazeScrapperAPI.Data.Repository
     
     public interface ITVShowRepository
     {        
-        void Create();        
+        void Create();
+
+        void Drop();
         
         Task AddTVShows(TVShowDTO tvShows);
 
@@ -18,7 +20,9 @@ namespace TVMazeScrapperAPI.Data.Repository
         Task AddRelation(TVShowCastMemberDTO tVShowCastMembers);
     
         IEnumerable<TVShowDTO> GetAllTVShows();
-            
+
+        IEnumerable<CastMemberDTO> GetAllTCast();
+
         Task<IEnumerable<TVShowDTO>> GetTVShows(int page = 1);
     }
 }

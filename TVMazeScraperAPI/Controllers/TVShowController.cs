@@ -29,29 +29,39 @@ namespace TVMazeScraperAPI.Controllers
         }
 
         [HttpGet("Index")]
-        public string Index()
+        public ContentResult Index()
         {
-            return "Home Page";
+            return new ContentResult
+            {
+                ContentType = "text/html",
+                Content = @"<p> Home Page </p>
+                            <p> Usage:</p>
+                            <p> &nbsp; &nbsp; home/ShowAll : Returns all tv shows.&nbsp;</p >  
+                            <p><br/> &nbsp; &nbsp; home/Shows/{id} : Returns paginated list of tv shows with its cast.</p>
+                            <p> &nbsp;</p> "
+            };
+            
         }
 
-        [HttpGet("AllShows")]
-        public string AllShows()
+        [HttpGet("ShowAll")]
+        public JsonResult AllShows()
         {
             var shows = tvShowBusiness.GetAllTVShows();
             if (shows != null && shows.Count() > 0)
-                return JsonConvert.SerializeObject(shows);
-            return "Database is not initialized";
+                return new JsonResult(JsonConvert.SerializeObject(shows));
+                
+            return new JsonResult("Database is not initialized");
         }
 
         [HttpGet("Shows/{page}")]
-        public async Task<string> Shows(int page = 1)
+        public async Task<JsonResult> Shows(int page = 1)
         {
             var shows = await tvShowBusiness.GetTVShows(page: page);
             if (shows != null && shows.Count() > 0)
             {
-                return JsonConvert.SerializeObject(shows);
+                return new JsonResult(JsonConvert.SerializeObject(shows));
             }
-            return "Database is not initialized";
+            return new JsonResult("No data exists on this page");
         }
     }
 }

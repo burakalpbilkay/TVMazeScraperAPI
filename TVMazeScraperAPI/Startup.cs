@@ -1,24 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Data.Consumer;
-using Data.Context;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using TVMazeScrapperAPI.Business;
-using TVMazeScrapperAPI.Data.Connector;
-using TVMazeScrapperAPI.Data.Repository;
-
 namespace TVMazeScraperAPI
 {
+    using System.Threading.Tasks;
+    using Data.Context;
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
+    using TVMazeScrapperAPI.Business;
+    using TVMazeScrapperAPI.Data.Connector;
+    using TVMazeScrapperAPI.Data.Consumer;
+    using TVMazeScrapperAPI.Data.Repository;
+
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -36,7 +31,7 @@ namespace TVMazeScraperAPI
             services.AddScoped<IConsumeWebService,ConsumeWebService >();
             services.AddScoped<ITVShowRepository, TVShowRepository>();
             services.AddScoped<ITVShowBusiness, TVShowBusiness>();
-            services.AddDbContextPool<TVMazeScraperContext>(options => options.UseSqlite("Data Source=tvmazescraper.db"), poolSize: 10);
+            services.AddDbContextPool<TVMazeScraperContext>(options => options.UseSqlite("Data Source=tvmazescraper.db", x => x.SuppressForeignKeyEnforcement()), poolSize: 10);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,6 +56,7 @@ namespace TVMazeScraperAPI
             {
                 var tvShowBusiness = scope.ServiceProvider.GetRequiredService<ITVShowBusiness>();
 
+                tvShowBusiness.DropDatabase();
                 await tvShowBusiness.CreateAndPopulateDatabase();
             }
         }

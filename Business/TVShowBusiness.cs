@@ -45,6 +45,11 @@
 
         }
 
+        public void DropDatabase()
+        {
+            this.tvShowRepository.Drop();
+        }
+
         public IEnumerable<TVShowDTO> GetAllTVShows()
         {
             return this.tvShowRepository

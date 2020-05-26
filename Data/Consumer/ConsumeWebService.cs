@@ -76,7 +76,7 @@
                     string body =
                         await response.Content.ReadAsStringAsync();
                    
-                    return JsonConvert.DeserializeObject<IEnumerable<TVShowDTO>>(body).Take(5);
+                    return JsonConvert.DeserializeObject<IEnumerable<TVShowDTO>>(body);
 
 
                 case HttpStatusCode.NotFound:
