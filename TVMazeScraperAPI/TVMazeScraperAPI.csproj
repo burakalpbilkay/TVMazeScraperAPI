@@ -6,6 +6,7 @@
 
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'WebApi' ">
     <StartAction>Project</StartAction>
+    <ExternalConsole>true</ExternalConsole>
     <LaunchUrl>home/index</LaunchUrl>
     <ApplicationURL>http://localhost:3582/</ApplicationURL>
   </PropertyGroup>
