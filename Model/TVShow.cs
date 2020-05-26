@@ -1,12 +1,9 @@
-﻿
-namespace TVMazeScrapperAPI.Models
+﻿namespace TVMazeScrapperAPI.Models
 {    
     using System.Collections.Generic;   
-
     
     public class TVShow
-    {
-        
+    {        
         public TVShow(int id, string name, ICollection<TVShowCastMember> tvShowCastMember)
         {
             this.Id = id;

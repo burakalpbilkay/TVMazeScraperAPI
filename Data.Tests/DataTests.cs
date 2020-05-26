@@ -1,14 +1,14 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Data.Context;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TVMazeScrapperAPI.Data.DTOs;
-using TVMazeScrapperAPI.Data.Repository;
-
-namespace Data.Tests
+﻿namespace TVMazeScrapperAPI.Data.Tests
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using Data.Context;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using TVMazeScrapperAPI.Data.DTOs;
+    using TVMazeScrapperAPI.Data.Repository;
+
     [TestClass]
     public class DataTests
     {
@@ -21,8 +21,7 @@ namespace Data.Tests
             optionsBuilder.UseSqlite("Data Source = tvmazescrapertest.db");
             context = new TVMazeScraperContext(optionsBuilder.Options);
             repo = new TVShowRepository(context);
-            repo.Create();
-            
+            repo.Create();            
         }
         
         [TestCleanup]

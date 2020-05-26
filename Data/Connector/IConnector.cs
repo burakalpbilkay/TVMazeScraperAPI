@@ -2,7 +2,6 @@
 {
     using System.Net.Http;
     using System.Threading.Tasks;
-
     
     public interface IConnector
     {        

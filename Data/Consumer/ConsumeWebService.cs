@@ -27,12 +27,10 @@
 
         public async Task AddCast(List<TVShowDTO> shows)
         {
-
             var partitition = shows.Zip(Enumerable.Range(0, shows.Count()),
                  (s, r) => new { Group = r / partitionSize, Item = s })
             .GroupBy(i => i.Group, g => g.Item)
             .ToList();
-
 
             foreach (var tvShows in partitition)
             {
@@ -63,7 +61,6 @@
             }
             await Task.Yield();
         }
-
         
         public async Task<IEnumerable<TVShowDTO>> GetTVShows()
         {

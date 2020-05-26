@@ -16,7 +16,6 @@
             Name = name;
             Birthday = birthday;
         }
-
         
         public int Id { get; set; }
         

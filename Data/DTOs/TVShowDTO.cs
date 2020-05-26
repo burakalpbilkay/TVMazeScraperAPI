@@ -7,8 +7,7 @@ namespace TVMazeScrapperAPI.Data.DTOs
     using Models;
     
     public class TVShowDTO
-    {
-        
+    {        
         public TVShowDTO(int id, string name, ICollection<CastMemberDTO> cast)
         {
             this.Id = id;
@@ -27,16 +26,12 @@ namespace TVMazeScrapperAPI.Data.DTOs
         public TVShowDTO()
         {
         }
-
-        
+                
         public int Id { get; set; }
-
         
         public string Name { get; set; }
-
         
         public ICollection<CastMemberDTO> Cast { get; set; }
-
         
         public TVShow ToModel()
         {

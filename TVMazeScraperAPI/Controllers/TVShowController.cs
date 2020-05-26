@@ -1,13 +1,12 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using TVMazeScrapperAPI.Business;
-using TVMazeScrapperAPI.Data.DTOs;
-
-namespace TVMazeScraperAPI.Controllers
+﻿namespace TVMazeScraperAPI.Controllers
 {
+    using System;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Mvc;
+    using Newtonsoft.Json;
+    using TVMazeScrapperAPI.Business;
+  
     [Produces("application/json")]
     [Route("Home")]
     [ApiController]

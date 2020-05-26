@@ -7,9 +7,7 @@ using TVMazeScrapperAPI.Data.DTOs;
 namespace TVMazeScrapperAPI.Data.Mock
 {
     public class ConsumeWebSeviceMock :IConsumeWebService
-    {
-       
-
+    {    
         public ConsumeWebSeviceMock()
         {
         }
@@ -17,7 +15,6 @@ namespace TVMazeScrapperAPI.Data.Mock
         public async Task AddCast(List<TVShowDTO> shows)
         {
             await Task.CompletedTask;
-
         }
 
         public async Task<IEnumerable<TVShowDTO>> GetTVShows()
@@ -29,7 +26,6 @@ namespace TVMazeScrapperAPI.Data.Mock
 
             TVShowDTO mockTvShow_1 = new TVShowDTO(1, "mockTvShow_1", new List<CastMemberDTO> { mockCasMember_1, mockCasMember_2 });
             TVShowDTO mockTvShow_2 = new TVShowDTO(2, "mockTvShow_2", new List<CastMemberDTO> { mockCasMember_3, mockCasMember_4 });
-
 
             List<TVShowDTO> mockTvShows = new List<TVShowDTO>();
             mockTvShows.Add(mockTvShow_1);

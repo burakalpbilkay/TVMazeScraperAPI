@@ -4,9 +4,7 @@ namespace TVMazeScrapperAPI.Data.Repository
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using TVMazeScrapperAPI.Data.DTOs;
-    
-
-    
+        
     public interface ITVShowRepository
     {        
         void Create();

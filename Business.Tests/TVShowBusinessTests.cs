@@ -1,13 +1,12 @@
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TVMazeScrapperAPI.Business;
-using TVMazeScrapperAPI.Data.Consumer;
-using TVMazeScrapperAPI.Data.Mock;
-using TVMazeScrapperAPI.Data.Repository;
-
-namespace Business.Tests
+namespace TVMazeScrapperAPI.Business.Tests
 {
+    using System.Linq;
+    using System.Threading.Tasks;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using TVMazeScrapperAPI.Business;
+    using TVMazeScrapperAPI.Data.Consumer;
+    using TVMazeScrapperAPI.Data.Mock;
+    using TVMazeScrapperAPI.Data.Repository;
     [TestClass]
     public class TVShowBusinessTests
     {
@@ -21,9 +20,7 @@ namespace Business.Tests
              repo = new TVShowRepositoryMock();
              service = new ConsumeWebSeviceMock();  
              business = new TVShowBusiness(repo,service);
-        }
-        
-
+        }  
         
         [TestMethod]
         public void TestGetTVShows_returnTVShowsSuccesfully()
@@ -33,7 +30,6 @@ namespace Business.Tests
             Assert.IsTrue(value.Count() == 2);
            
         }
-
         
         [TestMethod]
         public void TestTVShows_returnTVShowsSuccesfully()
@@ -41,8 +37,7 @@ namespace Business.Tests
             Task.Run(async () =>
             {
                 Assert.IsTrue((await business.GetTVShows(1)).Count() == 2);
-            }).GetAwaiter().GetResult();
-            
+            }).GetAwaiter().GetResult();            
         }
         
         [TestMethod]
